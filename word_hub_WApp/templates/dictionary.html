@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{% block content %}
+<head>
+    <link href="../static/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class='container'>
+        <h1>Dictionary</h1> 
+        <h3>Enter a word to be translated</h3>
+         <form action="{{url_for('views.dictionary')}}" method="POST">
+             <input value="{{request.form['word']}}" type="text" name="word"> <br>   
+            </form>
+         <div class="quote">
+           {{text | safe}}
+        </div>
+          {% if 'did you mean' in text|safe %}
+        <form action="{{url_for('views.dictionary2')}}" method="POST">
+            <input type="text" name="word2"> <br>   
+           </form>
+          {% else %}
+          {% endif %}
+          <div class="quote">
+            {{text2 | safe}}
+        </div>
+    </div>   
+</body>
+{%endblock%}

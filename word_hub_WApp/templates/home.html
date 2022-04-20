@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+{% block content %}
+    <head>
+        <link href="../static/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Home</h1>
+            <h3>How do you fell today?</h3>
+             <form action="{{url_for('views.home')}}" method="POST">
+                 <input placeholder="Happy, Sad or Unloved" type="text" name="feel"> <br>   
+                </form>
+             <div class="quote">
+                {{text | safe}}
+            </div>
+        </div>   
+    </body>
+{%endblock%}

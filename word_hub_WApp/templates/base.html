@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html land="'en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Hub</title>
+    <head>
+        <link href="../static/main.css" rel="stylesheet">
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    </body>
+        <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav">
+                {% if not current_user.is_authenticated %}
+                <a class="nav-item nav-link" id="login" href="/login">Log In</a>
+                <a class="nav-item nav-link" id="signup" href="/signup">Sign Up</a>
+                <a class="nav-item nav-link" id="forgotpassword"  href="/forgotpassword">Forgot Password</a>
+                {% else %}
+                <div class="dropdown">
+                    <button class="dropbtn">Apps</button>
+                    <div class="dropdown-content">
+                      <a href="/home">Home</a>
+                      <a href="/translate">Translator</a>
+                      <a href="/dictionary">Dictionary</a>
+                    </div>
+                  </div>
+                <a class="nav-item nav-link" id="logout"  href="/logout">Log Out</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="container">{%block content %} {% endblock %} </div>
+</html>

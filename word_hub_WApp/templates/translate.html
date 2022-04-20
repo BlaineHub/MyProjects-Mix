@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{% block content %}
+    <head>
+        <link href="../static/main.css" rel="stylesheet">
+    </head>
+    <h1>Translator</h1> 
+    <h3>Enter a text and select translation language</h3>
+    <div class="translate">
+        <form action="{{url_for('views.translate')}}" method="post">
+                <textarea class="form-control" rows="10" placeholder="enter text..." name="input">{{input}}</textarea> <br>
+                <textarea class="form-control" rows="10" placeholder="translated text..." name="output">{{output}}</textarea> <br>
+                <button type="submit">Translate</button> 
+                <select name='languages' class="form-default" style="width: 80px; height: 30px; font-size:15px;">
+                    <option value="de">German</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                    <option value="pl">Polish</option>  
+                </select>  
+        </form>
+    </div>
+{%endblock%}
