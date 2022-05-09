@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Article{% endblock %}
+
+{% block style %}
+ <style>
+     .article {
+         width:500px;
+         margin:auto;
+     }
+ </style>
+
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 article">
+        <form action="" method="POST" novalidate>
+            {{article_form | crispy}}
+            {% csrf_token %}
+            <input type="submit" value="Add Article" class="btn btn-success">
+        </form>
+{% endblock %}
+        
+
+    </div>
