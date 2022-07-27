@@ -27,9 +27,7 @@ class Data(db.Model, UserMixin):
 def create_app():  
     app=Flask(__name__)
     app.config['SECRET_KEY'] = 'hjhjhjhjhhjh'
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://Blaine91:Bod273191!@Blaine91.mysql.pythonanywhere-services.com/Blaine91$my_app'
-    #engine=create_engine('mysql+mysqlconnector://Blaine91:Bod273191!@Blaine91.mysql.pythonanywhere-services.com/Blaine91$my_app')
-    app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:123456@localhost/my_app'
+    app.config['SQLALCHEMY_DATABASE_URI']=''
     db.init_app(app)
 
     from views import views
